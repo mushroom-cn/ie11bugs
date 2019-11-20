@@ -27,3 +27,4 @@ dist
 *.js.map
 *.js
 *.css
+.yo-rc.json

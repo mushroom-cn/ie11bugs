@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const ZipPlugin = require('zip-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
 module.exports = function (env = {}, args) {
 	let entry = {
