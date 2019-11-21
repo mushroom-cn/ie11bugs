@@ -8,6 +8,7 @@ const webpack = require('webpack');
 module.exports = function (env = {}, args) {
 	let entry = {
 		["absolute-over-fixed"]: './src/absolute-over-fixed/index.ts',
+		"promise": "./node_modules/promise-polyfill/dist/polyfill.js",
 	};
 	const plugins = [
 		new CleanWebpackPlugin(),
@@ -15,7 +16,7 @@ module.exports = function (env = {}, args) {
 			filename: `[name].bundle.min.css`,
 		}),
 		new HtmlWebpackPlugin({
-			chunks: ["vendor", "runtime", "absolute-over-fixed"],
+			chunks: ["vendor", "runtime", "absolute-over-fixed", "promise"],
 			template: 'src/absolute-over-fixed/index.html',
 			filename: "absolute-over-fixed/index.html",
 		}),
@@ -55,7 +56,7 @@ module.exports = function (env = {}, args) {
 					]
 				},
 				{
-					test: /\.tsx?$/,
+					test: /\.(ts|js)x?$/,
 					exclude: /node_modules/,
 					use: {
 						loader: 'awesome-typescript-loader',
@@ -112,6 +113,7 @@ module.exports = function (env = {}, args) {
 			inline: true,
 			hot: true,
 			hotOnly: true,
+			disableHostCheck: true,
 			watchOptions: {
 				poll: 4000,
 				ignored: [/node_modules/, /dist/]
